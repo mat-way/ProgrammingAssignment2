@@ -1,7 +1,8 @@
-## Put comments here that give an overall description of what your
-## functions do
+## The functions work together and compute inverse matrix for original matrix if it's possible
+## Besides if inverse matrix were computed then return computed value from cache without 
+## new computations
 
-## Write a short comment describing this function
+## Set matrix for computing in argument 'x'
 
 makeCacheMatrix <- function(x = matrix()) {
         inv <- NULL
@@ -19,7 +20,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## Compute inverse matrix for original matrix 'x' and check that I can find inverse matrix
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -29,6 +30,10 @@ cacheSolve <- function(x, ...) {
                 return(inv)
         }
         data <- x$get()
+        
+        ## only matrix with deteminant not equal zero can have inverse matrix
+        ##I check it here
+        
         if(det(data)==0) {
                 message("Can't compute the inverse of matrix")
         } else {
